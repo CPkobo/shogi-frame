@@ -8,6 +8,30 @@
   <script src="https://cdn.jsdelivr.net/npm/kifu-for-js@3/bundle/kifu-for-js.min.js" charset="utf-8"></script>
 </head>
 <body>
-  <script>KifuForJS.load("./resources/jt201409130101.kif");</script>
+  <script>
+    const qss = window.location.search.substring(1).split('&')
+    const valid = ["kif", "ki2", "kifu", "ki2u", "csa", "jkf"]
+    let name = "";
+    let fmt = "";
+    for (const qs of qss) {
+      const qs2 = qs.split("=");
+      if (qs2.length < 2) {
+        continue;
+      } else {
+        if (qs2[0] === 'name') {
+          name = qs2[1];
+        } else if (qs2[0] === 'fmt') {
+          if (valid.indexOf(qs2[1]) !== -1) {
+            fmt = qs2[1];
+          }
+        }
+      }
+    }
+    if (name !== "" && fmt !== "") {
+      KifuForJS.load(`./resources/${name}.${fmt}`);
+    } else {
+      document.write("リソースが見当たりません")
+    }
+  </script>
 </body>
 </html>
