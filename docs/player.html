@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>メンヤンの棋譜</title>
+  <script src="https://cdn.jsdelivr.net/npm/kifu-for-js@3/bundle/kifu-for-js.min.js" charset="utf-8"></script>
+</head>
+<body>
+  <script>
+    const qss = window.location.search.substring(1).split('&')
+    const valid = ["kif", "ki2", "kifu", "ki2u", "csa", "jkf"]
+    let name = "";
+    let fmt = "";
+    for (const qs of qss) {
+      const qs2 = qs.split("=");
+      if (qs2.length < 2) {
+        continue;
+      } else {
+        if (qs2[0] === 'name') {
+          name = qs2[1];
+        } else if (qs2[0] === 'fmt') {
+          if (valid.indexOf(qs2[1]) !== -1) {
+            fmt = qs2[1];
+          }
+        }
+      }
+    }
+    if (name !== "" && fmt !== "") {
+      KifuForJS.load(`./resources/${name}.${fmt}`);
+    } else {
+      document.write("リソースが見当たりません")
+    }
+  </script>
+  <p>Powered by <a href="https://github.com/na2hiro/Kifu-for-JS">Kifu for JS</a></p>
+</body>
+</html>

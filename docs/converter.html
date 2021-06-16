@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>メンヤンの棋譜符号変換器</title>
+  <script src="./js/converter.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spcss@0.5.0">
+  <link rel="stylesheet" href="./css/converter.css">
+</head>
+<body>
+  <nav>
+    <h1>メンヤンの将棋スクリプト保管庫</h1>
+  </nav>
+  <h2>将棋符号コンバーター</h2>
+  <textarea id="inlet" rows="30" cols="80" placeholder="例：{26p}[34p]{25p}{33b}と進みます"></textarea>
+  <button onclick="convert()">変換</button>
+  <pre id="outlet">▲２六歩△３四歩▲２五歩▲３三角と進みます</pre>
+  <hr />
+  <table id="fugo-rule">
+    <thead>
+      <tr>
+        <th>入力</th>
+        <th>意味</th>
+        <th>出力</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{ }</td>
+        <td></td>
+      <td>先手の符合（▲）</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td></td>
+      <td>後手の符合（△）</td>
+      </tr>
+      <tr>
+        <td>半角数字×2</td>
+        <td></td>
+      <td>１一、２二など、全角数字＋漢数字に変換<br />空欄なら　「同」 に変換</td>
+      </tr>
+      <tr>
+        <td>p / P</td>
+        <td>Pawn</td>
+      <td>歩 / と に変換</td>
+      </tr>
+      <tr>
+        <td>l / L</td>
+        <td>Lance</td>
+      <td>香 / 成香 に変換</td>
+      </tr>
+      <tr>
+        <td>n / N</td>
+        <td>kNight</td>
+      <td>桂 / 成桂 に変換</td>
+      </tr>
+      <tr>
+        <td>s / S</td>
+        <td>Silver</td>
+      <td>銀 / 成銀 に変換</td>
+      </tr>
+      <tr>
+        <td>g / G</td>
+        <td>Gold</td>
+      <td>金 に変換</td>
+      </tr>
+      <tr>
+        <td>r / R</td>
+        <td>Rook</td>
+      <td>飛 / 龍 に変換</td>
+      </tr>
+      <tr>
+        <td>b / B</td>
+        <td>Bishop</td>
+      <td>角 / 馬 に変換</td>
+      </tr>
+      <tr>
+        <td>k / K</td>
+        <td>King</td>
+      <td>王 に変換</td>
+      </tr>
+      <tr>
+        <td>!</td>
+        <td></td>
+      <td>成に変換</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr >
+  <button><a href="./index.html">トップへ</a></button>
+</body>
+</html>
