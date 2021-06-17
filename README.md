@@ -5,6 +5,7 @@
 さらにGithub Pages でホストした棋譜プレイヤーをBloggerに組み込んでいます。
 
 [マイナーB級テレワーカー](https://sheepy-farm.blogspot.com/)
+[Github Pages](https://cpkobo.github.io/shogi-frame/)
 
 ## 使い方
 
